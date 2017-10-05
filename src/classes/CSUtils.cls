@@ -435,4 +435,22 @@ public with sharing class CSUtils {
         return queryString;
     }
 
+
+    /**
+     * Generates a System.assertEquals with a useful
+     * failure message
+    */
+    public static void itShouldBe(String what, Object itShouldBe, Object itIs) {
+        String msg = String.format('{0} is {1} but should be {2}', new List<String>{what, String.valueOf(itIs), String.valueOf(itShouldBe)});
+        System.assertEquals(itShouldBe, itIs, msg);
+    }
+
+    /**
+     * Generates a System.assertNotEquals with a 
+     * useful failure message
+    */
+    public static void itShouldNotBe(String what, Object itShouldNotBe, Object itIs) {
+        String msg = String.format('{0} is {1} but should not be', new List<String>{what, String.valueOf(itShouldNotBe)});
+        System.assertNotEquals(itShouldNotBe, itIs, msg);
+    }
 }
